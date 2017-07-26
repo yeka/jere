@@ -55,7 +55,7 @@ class NumReader
     }
 
     // === Translate string into word ID's
-    public function translateIt($inputNumber)
+    private function translateIt($inputNumber)
     {
         $string = "$inputNumber";
         $digit = strlen($string);
@@ -103,8 +103,9 @@ class NumReader
     }
 
     // === Turning code into sentence
-    public function readIt($inputCode)
+    public function readIt($inputNumber)
     {
+        $inputCode = $this->translateIt($inputNumber);
         $sentence = "";
         foreach ($inputCode as $key => $code) {
             $sentence .= $this->wordID[$code];
